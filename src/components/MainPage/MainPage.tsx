@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 const MainPage: React.FC = memo(function MainPage() {
-  return null
+  return <div>Hi, Main Page!</div>
 })
 
 export { MainPage }
