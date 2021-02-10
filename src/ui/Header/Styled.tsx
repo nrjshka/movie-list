@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Layout } from 'antd'
 
 const HeaderStyled = styled(Layout.Header)`
-  background: #fff;
+  background-color: ${({ theme }) => theme.colors.layoutBackground};
   height: auto;
 `
 

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Layout } from 'antd'
 
-import { Header, PagesContainer } from '../../ui'
+import { Header, PagesContainer, Content } from '../../ui'
 
 import { MainPage } from '..'
 
@@ -10,9 +10,9 @@ const App: React.FC = memo(function App() {
     <PagesContainer>
       <Layout>
         <Header />
-        <Layout.Content>
+        <Content>
           <MainPage />
-        </Layout.Content>
+        </Content>
       </Layout>
     </PagesContainer>
   )
