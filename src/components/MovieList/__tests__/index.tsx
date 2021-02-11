@@ -5,8 +5,8 @@ import { MovieList } from '../index'
 
 import { render, screen } from '../../../utils/testUtilts'
 
-test('counter increments and decrements when the buttons are clicked', () => {
-  render(<div>123</div>)
+test('default test case', () => {
+  render(<MovieList />)
 
   expect(true).toBe(true)
 })
