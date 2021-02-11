@@ -4,6 +4,7 @@ import { Layout } from 'antd'
 import { Header, PagesContainer, Content } from '../../ui'
 
 import { MovieList } from '..'
+import { movieMockNowYouSee, moviewMockSuicide } from '../../models'
 
 const App: React.FC = memo(function App() {
   return (
@@ -11,7 +12,7 @@ const App: React.FC = memo(function App() {
       <Layout>
         <Header />
         <Content>
-          <MovieList />
+          <MovieList movies={[moviewMockSuicide]} />
         </Content>
       </Layout>
     </PagesContainer>
