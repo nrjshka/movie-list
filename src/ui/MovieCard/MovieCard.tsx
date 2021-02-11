@@ -16,7 +16,7 @@ const MovieCard: React.FC<MovieType> = memo(function MovieCard(props) {
   return (
     <Card
       hoverable
-      cover={<PosterImg alt="test" src={posterSrc} />}
+      cover={<PosterImg alt={title} src={posterSrc} />}
       actions={[<div>Watch Later</div>, <div>Like</div>, <div>YouTube</div>]}
     >
       <h1>{title}</h1>
