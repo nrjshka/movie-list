@@ -4,7 +4,7 @@ import { Card, Tag } from 'antd'
 
 import { MovieType } from '../../models'
 
-import { PosterImg } from './Styled'
+import { PosterImg, Overview, Title } from './Styled'
 
 const IMG_BASE_URL = 'http://image.tmdb.org/t/p/w185/'
 
@@ -19,8 +19,8 @@ const MovieCard: React.FC<MovieType> = memo(function MovieCard(props) {
       cover={<PosterImg alt={title} src={posterSrc} />}
       actions={[<div>Watch Later</div>, <div>Like</div>, <div>YouTube</div>]}
     >
-      <h1>{title}</h1>
-      <p title={overview}>{overview}</p>
+      <Title>{title}</Title>
+      <Overview title={overview}>{overview}</Overview>
       <Tag>{release_date}</Tag>
 
       <div style={{ position: 'absolute', top: '5px', right: '5px', backgroundColor: 'red' }}>{vote_average}</div>

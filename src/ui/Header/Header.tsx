@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
 
+import { Search } from '../index'
+
 import { Content, Container, HeaderStyled, Section } from './Styled'
 
 const Header = memo(function Header() {
@@ -11,7 +13,9 @@ const Header = memo(function Header() {
           <Section>Watch Later</Section>
           <Section>Favourite</Section>
         </Content>
-        <Content>Search</Content>
+        <Content>
+          <Search />
+        </Content>
       </Container>
     </HeaderStyled>
   )
