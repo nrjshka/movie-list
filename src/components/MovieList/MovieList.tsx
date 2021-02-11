@@ -4,7 +4,7 @@ import { Col, Row } from 'antd'
 import { MovieCard } from '../../ui'
 import { movieMockNowYouSee, moviewMockSuicide } from '../../models'
 
-const MainPage: React.FC = memo(function MainPage() {
+const MovieList: React.FC = memo(function MovieList() {
   // @ts-ignore
   const mockArr = [...Array(4).keys()]
 
@@ -21,4 +21,4 @@ const MainPage: React.FC = memo(function MainPage() {
   )
 })
 
-export { MainPage }
+export { MovieList }

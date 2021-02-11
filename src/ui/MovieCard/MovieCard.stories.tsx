@@ -1,14 +1,19 @@
 import React from 'react'
 import { ArgType } from '@storybook/api'
+import styled from 'styled-components'
 
 import { movieMockNowYouSee, moviewMockSuicide, MovieType } from '../../models'
 
-import { MovieCard } from './index'
+import { MovieCard, SkeletonCard } from './index'
+
+const CardContainer = styled.div`
+  width: 320px;
+`
 
 const Template: React.FC<MovieType> = (props) => (
-  <div style={{ width: '320px' }}>
+  <CardContainer>
     <MovieCard {...props} />
-  </div>
+  </CardContainer>
 )
 
 const SuicideSquad: ArgType = Template.bind({})
@@ -19,9 +24,15 @@ const NowYouSeeMe: ArgType = Template.bind({})
 
 NowYouSeeMe.args = movieMockNowYouSee
 
+const Skeleton: React.FC = (props) => (
+  <CardContainer>
+    <SkeletonCard {...props} />
+  </CardContainer>
+)
+
 export default {
   component: MovieCard,
   title: 'Movie/Card',
 }
 
-export { SuicideSquad, NowYouSeeMe }
+export { SuicideSquad, NowYouSeeMe, Skeleton }

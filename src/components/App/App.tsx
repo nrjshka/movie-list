@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 
 import { Header, PagesContainer, Content } from '../../ui'
 
-import { MainPage } from '..'
+import { MovieList } from '..'
 
 const App: React.FC = memo(function App() {
   return (
@@ -11,7 +11,7 @@ const App: React.FC = memo(function App() {
       <Layout>
         <Header />
         <Content>
-          <MainPage />
+          <MovieList />
         </Content>
       </Layout>
     </PagesContainer>

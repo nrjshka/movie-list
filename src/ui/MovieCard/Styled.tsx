@@ -1,3 +1,4 @@
+import { Skeleton } from 'antd'
 import styled from 'styled-components'
 
 const PosterImg = styled.img`
@@ -7,6 +8,16 @@ const PosterImg = styled.img`
 
   object-fit: cover;
   vertical-align: top;
+`
+
+const SkeletonImage = styled(Skeleton.Image)`
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+
+  &&& > * {
+    width: 100%;
+  }
 `
 
 const Title = styled.h1`
@@ -24,4 +35,4 @@ const Overview = styled.p`
   text-overflow: ellipsis;
 `
 
-export { PosterImg, Title, Overview }
+export { PosterImg, Title, Overview, SkeletonImage }

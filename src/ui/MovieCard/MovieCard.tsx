@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import { Card, Tag } from 'antd'
+import { HeartOutlined, EyeOutlined, YoutubeOutlined } from '@ant-design/icons'
 
 import { MovieType } from '../../models'
 
@@ -17,7 +18,7 @@ const MovieCard: React.FC<MovieType> = memo(function MovieCard(props) {
     <Card
       hoverable
       cover={<PosterImg alt={title} src={posterSrc} />}
-      actions={[<div>Watch Later</div>, <div>Like</div>, <div>YouTube</div>]}
+      actions={[<HeartOutlined />, <EyeOutlined />, <YoutubeOutlined />]}
     >
       <Title>{title}</Title>
       <Overview title={overview}>{overview}</Overview>
