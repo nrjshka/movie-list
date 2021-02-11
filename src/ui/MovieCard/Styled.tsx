@@ -12,11 +12,11 @@ const PosterImg = styled.img`
 
 const SkeletonImage = styled(Skeleton.Image)`
   width: 100%;
-  height: auto;
-  max-height: 300px;
 
   &&& > * {
     width: 100%;
+    height: auto;
+    max-height: 300px;
   }
 `
 
