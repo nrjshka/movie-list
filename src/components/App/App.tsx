@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 import { Header, PagesContainer, Content } from '../../ui'
 
 import { MovieList } from '..'
-import { movieMockNowYouSee, moviewMockSuicide } from '../../models'
+import { Switch, Route } from 'react-router-dom'
 
 const App: React.FC = memo(function App() {
   return (
@@ -12,7 +12,10 @@ const App: React.FC = memo(function App() {
       <Layout>
         <Header />
         <Content>
-          <MovieList movies={[moviewMockSuicide]} />
+          <Switch>
+            <Route exact path="/:category(watch|like)" component={MovieList} />
+            <Route path="*" component={() => <div>Main</div>} />
+          </Switch>
         </Content>
       </Layout>
     </PagesContainer>
