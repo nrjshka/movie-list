@@ -3,14 +3,13 @@ import React, { memo } from 'react'
 import { Card, Tag } from 'antd'
 import { HeartOutlined, EyeOutlined, YoutubeOutlined } from '@ant-design/icons'
 
-import { MovieType } from '../../models'
-
 import { PosterImg, Overview, Title } from './Styled'
+import { MovieCardType } from './types'
 
 const IMG_BASE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const MovieCard: React.FC<MovieType> = memo(function MovieCard(props) {
-  const { poster_path, release_date, title, overview, vote_average } = props
+const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
+  const { poster_path, release_date, title, overview, vote_average, onWatchLater, onLike } = props
 
   const posterSrc = `${IMG_BASE_URL}${poster_path}`
 
@@ -18,7 +17,7 @@ const MovieCard: React.FC<MovieType> = memo(function MovieCard(props) {
     <Card
       hoverable
       cover={<PosterImg alt={title} src={posterSrc} />}
-      actions={[<HeartOutlined />, <EyeOutlined />, <YoutubeOutlined />]}
+      actions={[<HeartOutlined onClick={onLike} />, <EyeOutlined onClick={onWatchLater} />, <YoutubeOutlined />]}
     >
       <Title>{title}</Title>
       <Overview title={overview}>{overview}</Overview>
