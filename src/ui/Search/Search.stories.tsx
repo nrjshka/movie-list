@@ -2,11 +2,16 @@ import React from 'react'
 
 import { Search } from './index'
 
-const Preview: React.FC = (props) => <Search {...props} />
+import { SearchProps } from './types'
+
+const Preview: React.FC<SearchProps> = (props) => <Search {...props} />
 
 export default {
   component: Search,
   title: 'Page/Search',
+  args: {
+    value: '',
+  },
 }
 
 export { Preview }

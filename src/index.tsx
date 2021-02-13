@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-import { Router } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
+import { QueryParamProvider } from 'use-query-params'
 
 import reportWebVitals from './reportWebVitals'
 
@@ -16,11 +17,13 @@ import { store } from './redux'
 ReactDOM.render(
   <React.StrictMode>
     <Router history={appHistory}>
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </ThemeProvider>
+      <QueryParamProvider ReactRouterRoute={Route}>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ThemeProvider>
+      </QueryParamProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

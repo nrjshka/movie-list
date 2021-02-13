@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import { Search } from '../index'
+import { SearchContainer as Search } from './SearchContainer'
 
 import { Content, Container, HeaderStyled, Section } from './Styled'
 
