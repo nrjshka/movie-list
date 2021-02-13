@@ -1,3 +1,4 @@
+import { Tag } from 'antd'
 import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 
@@ -14,10 +15,20 @@ const Header = memo(function Header() {
             <Section>All</Section>
           </NavLink>
           <NavLink exact to="/watch" activeClassName="active">
-            <Section>Watch Later</Section>
+            <Section>
+              <div>Watch Later</div>
+              {/* <div>
+                <Tag color="purple">163</Tag>
+              </div> */}
+            </Section>
           </NavLink>
           <NavLink exact to="/favourite" activeClassName="active">
-            <Section>Favourite</Section>
+            <Section>
+              <div>Favourite</div>
+              {/* <div>
+                <Tag color="purple">163</Tag>
+              </div> */}
+            </Section>
           </NavLink>
         </Content>
         <Content>

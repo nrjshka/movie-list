@@ -3,11 +3,14 @@ import { combineReducers } from '@reduxjs/toolkit'
 import popular, { PopularState } from './popular'
 import search, { SearchState } from './search'
 import app, { AppState } from './app'
+import { watchLater, favourite } from './savedMovies'
 
 const reducer = combineReducers({
   popular,
   search,
   app,
+  watchLater: watchLater.reducer,
+  favourite: favourite.reducer,
 })
 
 type StoreType = {
