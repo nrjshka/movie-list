@@ -26,6 +26,12 @@ const Content = styled.div`
       margin-right: 0;
     }
   }
+
+  color: #1890ff;
+
+  .active {
+    color: red;
+  }
 `
 
 const Section = styled.div`

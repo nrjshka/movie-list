@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 
 import { Header, PagesContainer, Content } from '../../ui'
 
-import { MovieList, MainPage } from '..'
+import { PopularMovies, MainPage } from '..'
 import { Switch, Route } from 'react-router-dom'
 
 const App: React.FC = memo(function App() {
@@ -13,7 +13,7 @@ const App: React.FC = memo(function App() {
         <Header />
         <Content>
           <Switch>
-            <Route exact path="/:category(watch|like)" component={MovieList} />
+            <Route exact path="/:category(watch|favourite)" component={PopularMovies} />
             <Route path="*" component={MainPage} />
           </Switch>
         </Content>
