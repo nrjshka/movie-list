@@ -6,8 +6,11 @@ import { MovieCard, SkeletonCard } from '../../ui'
 
 import { MovieListProps } from './types'
 import { getSavedMovieData, saveMovie, removeMovie, SupportedStores } from '../../redux'
+import { MovieType } from '../../models'
 
 const emptyMockArr = new Array(4).fill(0)
+
+const isIdInMovieArray = (data: MovieType[], currentMovie: MovieType) => !!data.find(({ id }) => id === currentMovie.id)
 
 const MovieList: React.FC<MovieListProps> = memo(function MovieList({ loading = false, movies }) {
   const dispatch = useDispatch()
@@ -46,8 +49,8 @@ const MovieList: React.FC<MovieListProps> = memo(function MovieList({ loading = 
         {movies.map((movie, index) => (
           <Col key={index} xs={12} md={8} lg={6}>
             <MovieCard
-              isInFavouriteList={!!favouriteData.find(({ id }) => id === movie.id)}
-              isInWatchList={!!watchLaterData.find(({ id }) => id === movie.id)}
+              isInFavouriteList={isIdInMovieArray(favouriteData, movie)}
+              isInWatchList={isIdInMovieArray(watchLaterData, movie)}
               onLike={onMovieActionClick('favourite', index)}
               onWatchLater={onMovieActionClick('watchLater', index)}
               {...movie}
