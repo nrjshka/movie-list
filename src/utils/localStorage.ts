@@ -1,21 +1,27 @@
+import { MovieType } from '../models'
+
 enum StorageValues {
-  WATCH = 'STORAGE/WATCH_LATER',
-  FAVOURITE = 'STORAGE/FAVOURITE',
+  watchLater = 'STORAGE/WATCH_LATER',
+  favourite = 'STORAGE/FAVOURITE',
 }
 
-const getStorageValue = (key: StorageValues): string | null => {
+const getStorageValue = (key: StorageValues): [] | null => {
   const value = localStorage.getItem(key)
 
   if (!value) {
     return null
   }
 
-  return value
+  return JSON.parse(value)
+}
+
+const setStorageMovieValue = (key: keyof typeof StorageValues, value: MovieType[]): void => {
+  localStorage.setItem(StorageValues[key], JSON.stringify(value))
 }
 
 const getAllStorageVars = () => ({
-  watchLater: getStorageValue(StorageValues.WATCH),
-  favourite: getStorageValue(StorageValues.FAVOURITE),
+  watchLater: getStorageValue(StorageValues.watchLater),
+  favourite: getStorageValue(StorageValues.favourite),
 })
 
-export { getAllStorageVars }
+export { getAllStorageVars, setStorageMovieValue }
