@@ -26,7 +26,7 @@ const SearchList = memo(function SearchList() {
     [],
   )
 
-  return <MovieList loading={isLoadingSearch} movies={searchData} />
+  return <MovieList loading={isLoadingSearch || !debouncedText} movies={searchData} />
 })
 
 export { SearchList }
