@@ -2,6 +2,10 @@ type ApiHeaders = {
   'Content-Type'?: string
 }
 
+type ApiQuery = {
+  api_key?: string
+}
+
 type ApiErrorData<T = any> = {
   isNetworkError: boolean
   errorData: T
@@ -9,4 +13,4 @@ type ApiErrorData<T = any> = {
 
 type ErrorResponse = {}
 
-export type { ApiErrorData, ApiHeaders, ErrorResponse }
+export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery }

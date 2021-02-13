@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse, AxiosError, AxiosRequestConfig } f
 
 import { API_PREFIX } from '../utils'
 import { ApiError } from './ApiError'
-import { ApiHeaders, ErrorResponse } from './types'
+import { ApiHeaders, ErrorResponse, ApiQuery } from './types'
 
 class ApiService {
   /**
@@ -19,6 +19,8 @@ class ApiService {
    * Response headers
    */
   private headersDict: Partial<ApiHeaders> = { 'Content-Type': 'application/json' }
+
+  private queryDict: Partial<ApiQuery> = {}
 
   constructor(endpoint?: string) {
     this.endpoint = endpoint || '/'
@@ -52,6 +54,13 @@ class ApiService {
     }
   }
 
+  public addQuery = (newQuery: Partial<ApiQuery>) => {
+    this.queryDict = {
+      ...this.queryDict,
+      ...newQuery,
+    }
+  }
+
   public post = <T>(
     method: string,
     params: Record<string, any> = {},
@@ -67,12 +76,18 @@ class ApiService {
 
   public get = <T>(method: string, config: AxiosRequestConfig = { headers: {} }): Promise<T> =>
     this.api
-      .get<T>(method, {
+      .get<T>(`${method}?${this.contertQueryDict()}`, {
         ...config,
         headers: { ...this.headersDict, ...(config.headers as Partial<ApiHeaders>) },
       })
       .then(this.responseHandler)
       .catch(this.errorHandler) as Promise<T>
+
+  private contertQueryDict() {
+    return Object.keys(this.queryDict)
+      .map((queryKey) => `${queryKey}=${this.queryDict[queryKey as keyof ApiQuery]}`)
+      .join('&')
+  }
 }
 
 const api = new ApiService(API_PREFIX)
