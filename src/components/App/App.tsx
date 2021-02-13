@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 
 import { Header, PagesContainer, Content } from '../../ui'
 
-import { PopularMovies, MainPage } from '..'
+import { SavedMoviesList, MainPage } from '..'
 import { Switch, Route } from 'react-router-dom'
 
 import { SpinStyled, SpinContainer } from './Styled'
@@ -27,7 +27,7 @@ const App: React.FC = memo(function App() {
         <Header />
         <Content>
           <Switch>
-            <Route exact path="/:category(watch|favourite)" component={PopularMovies} />
+            <Route exact path="/:category(watchLater|favourite)" component={SavedMoviesList} />
             <Route path="*" component={MainPage} />
           </Switch>
         </Content>

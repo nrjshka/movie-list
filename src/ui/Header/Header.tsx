@@ -14,7 +14,7 @@ const Header = memo(function Header() {
           <NavLink exact to="/" activeClassName="active">
             <Section>All</Section>
           </NavLink>
-          <NavLink exact to="/watch" activeClassName="active">
+          <NavLink exact to="/watchLater" activeClassName="active">
             <Section>
               <div>Watch Later</div>
               {/* <div>

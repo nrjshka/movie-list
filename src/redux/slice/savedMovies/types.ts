@@ -4,4 +4,6 @@ type SavedMoviesType = {
   data: MovieType[]
 }
 
-export type { SavedMoviesType }
+type SupportedStores = 'watchLater' | 'favourite'
+
+export type { SavedMoviesType, SupportedStores }

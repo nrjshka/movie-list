@@ -21,3 +21,6 @@ const watchLater = createSlice(savedMoviesFactory('watch'))
 const favourite = createSlice(savedMoviesFactory('favourite'))
 
 export { watchLater, favourite }
+export * from './selectors'
+
+export * from './types'
