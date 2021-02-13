@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getSearchDataResults } from './middleware'
 
 import { SearchState } from './types'
 
 const initialState: SearchState = {
   text: '',
   data: [],
+  isError: false,
+  isLoading: false,
 }
 
 const search = createSlice({
@@ -16,13 +19,40 @@ const search = createSlice({
 
       state.text = payload
     },
+
+    clearData: (state) => {
+      state.data = []
+    },
   },
-  extraReducers: {},
+  extraReducers: (builder) => {
+    // getSearchDataResults
+    builder.addCase(getSearchDataResults.pending, (state) => {
+      state.isLoading = true
+      state.isError = false
+    })
+
+    builder.addCase(getSearchDataResults.fulfilled, (state, action) => {
+      const { results } = action.payload
+
+      state.data = results
+      state.isError = false
+      state.isLoading = false
+    })
+
+    builder.addCase(getSearchDataResults.rejected, (state) => {
+      state.isLoading = false
+      state.isError = true
+      state.data = []
+    })
+  },
 })
 
 const { reducer, actions } = search
 
 export default reducer
-export const { setSearchText } = actions
+export const { setSearchText, clearData } = actions
+
+export * from './selectors'
+export * from './middleware'
 
 export * from './types'

@@ -1,15 +1,15 @@
 import React, { memo } from 'react'
-import { RouteComponentProps, StaticContext } from 'react-router'
+import { useSelector } from 'react-redux'
 
-import { parse } from 'query-string'
+import { PopularMovies, SearchList } from '..'
 
-import { PopularMovies } from '../PopularMovies'
+import { getSearchText } from '../../redux'
 
-const MainPage: React.FC<RouteComponentProps<{}, StaticContext, { q: string }>> = memo(function MainPage(props) {
-  const { q } = parse(props.location.search)
+const MainPage: React.FC = memo(function MainPage() {
+  const searchText = useSelector(getSearchText)
 
-  if (q) {
-    return <div>Search results</div>
+  if (searchText) {
+    return <SearchList />
   }
 
   return <PopularMovies />

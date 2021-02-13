@@ -22,4 +22,11 @@ type PopularMoviesResponse = {
   total_results: number
 }
 
-export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery, PopularMoviesResponse }
+type SearchMoviesResponse = {
+  page: number
+  results: MovieType[]
+  total_pages: number
+  total_results: number
+}
+
+export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery, PopularMoviesResponse, SearchMoviesResponse }

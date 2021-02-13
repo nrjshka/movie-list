@@ -12,7 +12,9 @@ import 'antd/dist/antd.css'
 import { App } from './components'
 import { theme } from './ui'
 import { appHistory } from './utils'
-import { store } from './redux'
+import { loadApp, store } from './redux'
+
+store.dispatch(loadApp())
 
 ReactDOM.render(
   <React.StrictMode>

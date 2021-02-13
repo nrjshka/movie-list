@@ -76,18 +76,16 @@ class ApiService {
 
   public get = <T>(method: string, config: AxiosRequestConfig = { headers: {} }): Promise<T> =>
     this.api
-      .get<T>(`${method}?${this.contertQueryDict()}`, {
+      .get<T>(method, {
         ...config,
         headers: { ...this.headersDict, ...(config.headers as Partial<ApiHeaders>) },
+        params: {
+          ...this.queryDict,
+          ...config.params,
+        },
       })
       .then(this.responseHandler)
       .catch(this.errorHandler) as Promise<T>
-
-  private contertQueryDict() {
-    return Object.keys(this.queryDict)
-      .map((queryKey) => `${queryKey}=${this.queryDict[queryKey as keyof ApiQuery]}`)
-      .join('&')
-  }
 }
 
 const api = new ApiService(API_PREFIX)
