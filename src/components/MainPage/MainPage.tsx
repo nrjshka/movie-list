@@ -1,14 +1,14 @@
 import React, { memo } from 'react'
 import { RouteComponentProps, StaticContext } from 'react-router'
 
+import { parse } from 'query-string'
+
 import { PopularMovies } from '../PopularMovies'
 
 const MainPage: React.FC<RouteComponentProps<{}, StaticContext, { q: string }>> = memo(function MainPage(props) {
-  // react-router have not supported query prop ever in types yet
-  // @ts-ignore
-  const { query } = props.location
+  const { q } = parse(props.location.search)
 
-  if (query?.q) {
+  if (q) {
     return <div>Search results</div>
   }
 
