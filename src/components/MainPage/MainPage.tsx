@@ -1,7 +1,10 @@
 import React, { memo } from 'react'
+import { RouteComponentProps } from 'react-router'
 
-const MainPage: React.FC = memo(function MainPage(props) {
-  return <div>Main Page</div>
+import { PopularMovies } from '../PopularMovies'
+
+const MainPage: React.FC<RouteComponentProps> = memo(function MainPage() {
+  return <PopularMovies />
 })
 
 export { MainPage }

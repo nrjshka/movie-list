@@ -20,4 +20,6 @@ export default reducer
 export const {} = actions
 
 export * from './selectors'
+export * from './middleware'
+
 export * from './types'

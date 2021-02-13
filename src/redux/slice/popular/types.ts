@@ -1,9 +1,14 @@
 import { MovieType } from '../../../models'
 
 type PopularState = {
-  isLoading: boolean
-  isError: boolean
-  data: MovieType[]
+  readonly isLoading: boolean
+  readonly isError: boolean
+  readonly data: MovieType[]
 }
 
+enum PopularActionTypes {
+  GET_DATA = 'POPULAR/GET/DATA',
+}
+
+export { PopularActionTypes }
 export type { PopularState }
