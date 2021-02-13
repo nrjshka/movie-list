@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { getPopulatMoviewData } from './middleware'
+
 import { PopularState } from './types'
 
 const initialState: PopularState = {
@@ -12,6 +14,26 @@ const popular = createSlice({
   name: 'popular',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    // getPopulatMoviewData
+    builder.addCase(getPopulatMoviewData.pending, (state) => {
+      state.isLoading = true
+      state.isError = false
+    })
+
+    builder.addCase(getPopulatMoviewData.fulfilled, (state, action) => {
+      const { results } = action.payload
+
+      state.isLoading = false
+      state.isError = false
+      state.data = results
+    })
+
+    builder.addCase(getPopulatMoviewData.rejected, (state) => {
+      state.isLoading = false
+      state.isError = true
+    })
+  },
 })
 
 const { reducer, actions } = popular

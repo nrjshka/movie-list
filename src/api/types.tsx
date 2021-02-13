@@ -1,3 +1,5 @@
+import { MovieType } from '../models'
+
 type ApiHeaders = {
   'Content-Type'?: string
 }
@@ -13,4 +15,11 @@ type ApiErrorData<T = any> = {
 
 type ErrorResponse = {}
 
-export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery }
+type PopularMoviesResponse = {
+  page: number
+  results: MovieType[]
+  total_pages: number
+  total_results: number
+}
+
+export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery, PopularMoviesResponse }

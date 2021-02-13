@@ -1,13 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { movieApi } from '../../../api'
+import { ErrorResponse, movieApi, ApiError } from '../../../api'
 
 import { PopularActionTypes } from './types'
 
-const getPopulatMoviewData = createAsyncThunk(PopularActionTypes.GET_DATA, async () => {
+const getPopulatMoviewData = createAsyncThunk(PopularActionTypes.GET_DATA, async (_, { rejectWithValue }) => {
   try {
     const data = await movieApi.getPopularMovies()
-  } catch (e) {}
+
+    return data
+  } catch (err) {
+    return rejectWithValue((err as ApiError<ErrorResponse>).errorData)
+  }
 })
 
 export { getPopulatMoviewData }

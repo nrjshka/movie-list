@@ -2,6 +2,8 @@ import { api, ApiService } from './ApiService'
 
 import { TMDB_API_KEY } from '../utils'
 
+import { PopularMoviesResponse } from './types'
+
 class MovieApi {
   private api: ApiService
 
@@ -11,7 +13,7 @@ class MovieApi {
     this.api.addQuery({ api_key: TMDB_API_KEY })
   }
 
-  public getPopularMovies = (): Promise<any> => this.api.get('/movie/popular')
+  public getPopularMovies = (): Promise<PopularMoviesResponse> => this.api.get('/movie/popular')
 }
 
 const movieApi = new MovieApi(api)
