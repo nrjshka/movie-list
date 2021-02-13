@@ -1,21 +1,20 @@
 import React, { memo, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { useQueryParam, StringParam, withDefault } from 'use-query-params'
+import { setSearchText } from '../../redux'
 
 import { Search } from '../Search'
 
-import { useDebounce } from '../../hooks'
-
 const SearchContainer = memo(function SearchContainer() {
   const [search, setSearch] = useQueryParam('q', withDefault(StringParam, ''))
-
-  const debouncedValue = useDebounce(search, 500)
+  const dispatch = useDispatch()
 
   const onChange = (value: string) => setSearch(value, 'replaceIn')
 
   useEffect(() => {
-    console.log('call', debouncedValue)
-  }, [debouncedValue])
+    dispatch(setSearchText(search))
+  }, [search, dispatch])
 
   return <Search value={search} onChange={onChange} />
 })
