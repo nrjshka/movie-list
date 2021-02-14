@@ -2,7 +2,6 @@ import { Progress, Skeleton } from 'antd'
 import styled from 'styled-components'
 
 const PosterImg = styled.img`
-  width: 100%;
   height: 100%;
   max-height: 300px;
 
@@ -36,14 +35,22 @@ const Overview = styled.p`
 `
 
 const StyledProgress = styled(Progress)`
-  position: absolute;
-  bottom: 65px;
-  right: 24px;
-
   &&& .ant-progress-text {
     color: #1890ff;
     font-weight: bold;
   }
 `
 
-export { PosterImg, Title, Overview, SkeletonImage, StyledProgress }
+const TagsContainer = styled.div`
+  display: flex;
+
+  flex-direction: row;
+
+  justify-content: space-between;
+`
+
+const DateTagWrapper = styled.div`
+  margin: auto 0;
+`
+
+export { PosterImg, Title, Overview, SkeletonImage, StyledProgress, TagsContainer, DateTagWrapper }

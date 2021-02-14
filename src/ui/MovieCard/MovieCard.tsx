@@ -6,7 +6,7 @@ import { HeartOutlined, HeartFilled, EyeOutlined, EyeFilled, YoutubeOutlined, Yo
 
 import { movieApi } from '../../api'
 
-import { PosterImg, Overview, Title, SkeletonImage, StyledProgress } from './Styled'
+import { PosterImg, Overview, Title, SkeletonImage, StyledProgress, TagsContainer, DateTagWrapper } from './Styled'
 import { MovieCardType } from './types'
 
 const IMG_BASE_URL = 'http://image.tmdb.org/t/p/w185/'
@@ -55,6 +55,7 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
     <Card
       hoverable
       cover={poster_path ? <PosterImg alt={title} src={posterSrc} /> : <SkeletonImage />}
+      bodyStyle={{ padding: '10px' }}
       actions={[
         <FavouriteComponent onClick={onLikeWrapper} />,
         <WatchComponent onClick={onWatchLaterWrapper} />,
@@ -63,16 +64,21 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
     >
       <Title>{title}</Title>
       <Overview title={overview}>{overview}</Overview>
-      <Tag color="red">{outputDate}</Tag>
 
-      <StyledProgress
-        strokeColor="#1890ff"
-        strokeWidth={10}
-        width={40}
-        type="circle"
-        percent={vote_average * 10}
-        format={(percent) => percent && percent / 10}
-      />
+      <TagsContainer>
+        <DateTagWrapper>
+          <Tag color="red">{outputDate}</Tag>
+        </DateTagWrapper>
+
+        <StyledProgress
+          strokeColor="#1890ff"
+          strokeWidth={10}
+          width={40}
+          type="circle"
+          percent={vote_average * 10}
+          format={(percent) => percent && percent / 10}
+        />
+      </TagsContainer>
     </Card>
   )
 })
