@@ -5,7 +5,7 @@ import { setupServer } from 'msw/node'
 
 import { MovieCard } from '..'
 
-import { render, screen, fireEvent } from '../../../utils/testUtilts'
+import { render, screen, fireEvent, waitUntilStoreUpdates } from '../../../utils/testUtilts'
 import { movieMockNowYouSee } from '../../../models'
 
 import { API_PREFIX } from '../../../utils'
@@ -44,7 +44,7 @@ test('<MovieCard /> click on buttons call the handlers', () => {
   expect(onLike).toHaveBeenCalledTimes(1)
 })
 
-test('<MovieCard /> click on youtube opens wwww.youtube.com', () => {
+test('<MovieCard /> click on youtube opens wwww.youtube.com', async () => {
   const onWatchLater = jest.fn()
   const onLike = jest.fn()
 
