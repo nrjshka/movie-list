@@ -31,7 +31,9 @@ https://nrjshka-movie-list.netlify.app/
 
 ### Watching movie trailers
 
-## Contacts
+![Demo](https://github.com/nrjshka/movie-list/blob/main/media/movieList4.gif)
+
+## My contacts
 
 - [LinkedIn](https://www.linkedin.com/in/nrjshka/)
 - [Telegram](t.me/nrjshka)
