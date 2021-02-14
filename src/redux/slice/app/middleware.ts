@@ -12,7 +12,7 @@ import { AppActionTypes } from './types'
 
 // initialize app
 const loadApp = createAsyncThunk(AppActionTypes.LOAD, async (_, { dispatch }) => {
-  const { q } = parse(window.location.search)
+  const { q = '' } = parse(window.location.search)
   const { watchLater, favourite } = getAllStorageVars()
 
   await dispatch(setSearchText(q))

@@ -6,7 +6,7 @@ import { MovieList } from '..'
 
 import { SupportedStores, getSavedMovieData, getSearchText } from '../../redux'
 
-const isSubString = (value: string, sub: string) => value.toLowerCase().indexOf(sub) >= 0
+const isSubString = (value: string, sub: string) => value.toLowerCase().indexOf(sub.toLowerCase()) >= 0
 
 const SavedMoviesList: React.FC<RouteComponentProps<{ category: SupportedStores }>> = memo(function SavedMoviesList(
   props,
