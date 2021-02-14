@@ -2,15 +2,19 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import { reducer } from './slice'
 
-const preloadedState = {}
+const initStore = {}
 
-const store = configureStore({
-  reducer,
-  preloadedState,
-  devTools: process.env.NODE_ENV !== 'production',
-})
+const createStore = (preloadedState = initStore) =>
+  configureStore({
+    reducer,
+    preloadedState,
+    devTools: process.env.NODE_ENV !== 'production',
+  })
 
+const store = createStore()
+
+type AppStore = typeof store
 type AppDispatch = typeof store.dispatch
 
-export { store }
-export type { AppDispatch }
+export { store, createStore }
+export type { AppDispatch, AppStore }
