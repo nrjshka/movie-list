@@ -11,7 +11,9 @@ https://nrjshka-movie-list.netlify.app/
 ### Searching movies
 1. Search input supports queryString, which allows you to save a link to a specific query so that you can comfortably send it to friends or acquaintances.
 2. An empty query displays the most popular movies.
-...
+
+![Demo](https://github.com/nrjshka/movie-list/blob/main/media/movieList1.gif)
+
 
 ### "Watch later" and "Favourite"
 1. The movie can be added to "favorite" or "watch later".
