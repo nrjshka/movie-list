@@ -19,13 +19,16 @@ https://nrjshka-movie-list.netlify.app/
 1. The movie can be added to "favorite" or "watch later".
 2. To do this, just click on the icon under the movie.
 3. Pressing the icon again will remove it from the list.
-...
+
+![Demo](https://github.com/nrjshka/movie-list/blob/main/media/movieList2.gif)
 
 ### Filters movies in "watch later" and "favorite".
 1. The "watch later" and "favorite" pages also support filtering.
 2. To do this, use the search bar. Search by title and description of the movie is supported.
 3. Searching bar also supports queryString.
 ...
+
+### Watching movie trailers
 
 ## Contacts
 
