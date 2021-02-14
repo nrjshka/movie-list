@@ -59,7 +59,7 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
       actions={[
         <FavouriteComponent onClick={onLikeWrapper} />,
         <WatchComponent onClick={onWatchLaterWrapper} />,
-        <YouTubeComponent onClick={onYouTubeClick} />,
+        <YouTubeComponent disabled={!withTrailer} onClick={onYouTubeClick} />,
       ]}
     >
       <Title>{title}</Title>
