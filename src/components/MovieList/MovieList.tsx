@@ -44,7 +44,7 @@ const MovieList: React.FC<MovieListProps> = memo(function MovieList({ loading = 
   return (
     <Row justify="center" gutter={[16, 16]}>
       {movies.map((movie, index) => (
-        <Col key={index} xs={12} md={8} lg={6}>
+        <Col key={index} xs={14} md={8} lg={6}>
           <MovieCard
             isInFavouriteList={isIdInMovieArray(favouriteData, movie)}
             isInWatchList={isIdInMovieArray(watchLaterData, movie)}
