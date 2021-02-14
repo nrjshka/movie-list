@@ -1,5 +1,6 @@
 import React, { memo, useState, useCallback } from 'react'
 
+import moment from 'moment'
 import { Card, Tag } from 'antd'
 import { HeartOutlined, HeartFilled, EyeOutlined, EyeFilled, YoutubeOutlined, YoutubeFilled } from '@ant-design/icons'
 
@@ -48,7 +49,7 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
     }
   }, [id, setTrailerStatus, withTrailer])
 
-  const outputDate = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short' }).format(new Date(release_date))
+  const outputDate = moment(release_date).format('YYYY MMM')
 
   return (
     <Card
