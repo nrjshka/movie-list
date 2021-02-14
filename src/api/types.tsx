@@ -29,4 +29,26 @@ type SearchMoviesResponse = {
   total_results: number
 }
 
-export type { ApiErrorData, ApiHeaders, ErrorResponse, ApiQuery, PopularMoviesResponse, SearchMoviesResponse }
+type MovieVideosResponse = {
+  id: number
+  results: {
+    id: string
+    iso_639_1: string
+    iso_3166_1: string
+    key: string
+    name: string
+    site: string
+    size: number
+    type: string
+  }[]
+}
+
+export type {
+  ApiErrorData,
+  ApiHeaders,
+  ErrorResponse,
+  ApiQuery,
+  PopularMoviesResponse,
+  SearchMoviesResponse,
+  MovieVideosResponse,
+}

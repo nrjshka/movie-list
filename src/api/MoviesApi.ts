@@ -2,7 +2,7 @@ import { api, ApiService } from './ApiService'
 
 import { TMDB_API_KEY } from '../utils'
 
-import { PopularMoviesResponse, SearchMoviesResponse } from './types'
+import { PopularMoviesResponse, SearchMoviesResponse, MovieVideosResponse } from './types'
 
 class MovieApi {
   private api: ApiService
@@ -17,6 +17,8 @@ class MovieApi {
 
   public getSearchResults = (query: string): Promise<SearchMoviesResponse> =>
     this.api.get('/search/movie', { params: { query } })
+
+  public getMovieTrailer = (movieId: number): Promise<MovieVideosResponse> => this.api.get(`/movie/${movieId}/videos`)
 }
 
 const movieApi = new MovieApi(api)
