@@ -11,7 +11,7 @@ import { movieMockNowYouSee } from '../../../models'
 import { API_PREFIX } from '../../../utils'
 
 const server = setupServer(
-  rest.get(`${API_PREFIX}/movie/291805/videos`, async (req, res, ctx) => {
+  rest.get(`${API_PREFIX}/movie/${movieMockNowYouSee.id}/videos`, async (req, res, ctx) => {
     return res(ctx.json({ results: [{ key: '123456' }] }))
   }),
 )
