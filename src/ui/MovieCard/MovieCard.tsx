@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { Card, Tag } from 'antd'
 import { HeartOutlined, HeartFilled, EyeOutlined, EyeFilled, YoutubeOutlined } from '@ant-design/icons'
 
-import { PosterImg, Overview, Title } from './Styled'
+import { PosterImg, Overview, Title, SkeletonImage } from './Styled'
 import { MovieCardType } from './types'
 
 const IMG_BASE_URL = 'http://image.tmdb.org/t/p/w185/'
@@ -32,7 +32,7 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
   return (
     <Card
       hoverable
-      cover={<PosterImg alt={title} src={posterSrc} />}
+      cover={poster_path ? <PosterImg alt={title} src={posterSrc} /> : <SkeletonImage />}
       actions={[
         <FavouriteComponent onClick={onLikeWrapper} />,
         <WatchComponent onClick={onWatchLaterWrapper} />,
