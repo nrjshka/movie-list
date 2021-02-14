@@ -31,34 +31,30 @@ const MovieList: React.FC<MovieListProps> = memo(function MovieList({ loading = 
 
   if (loading) {
     return (
-      <div>
-        <Row justify="center" align="top" gutter={[30, 16]}>
-          {emptyMockArr.map((_, index) => (
-            <Col key={index} xs={12} md={8} lg={6}>
-              <SkeletonCard key={index} />
-            </Col>
-          ))}
-        </Row>
-      </div>
+      <Row justify="center" gutter={[30, 16]}>
+        {emptyMockArr.map((_, index) => (
+          <Col key={index} xs={12} md={8} lg={6}>
+            <SkeletonCard key={index} />
+          </Col>
+        ))}
+      </Row>
     )
   }
 
   return (
-    <div>
-      <Row justify="center" align="top" gutter={[30, 16]}>
-        {movies.map((movie, index) => (
-          <Col key={index} xs={12} md={8} lg={6}>
-            <MovieCard
-              isInFavouriteList={isIdInMovieArray(favouriteData, movie)}
-              isInWatchList={isIdInMovieArray(watchLaterData, movie)}
-              onLike={onMovieActionClick('favourite', index)}
-              onWatchLater={onMovieActionClick('watchLater', index)}
-              {...movie}
-            />
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Row justify="center" gutter={[16, 16]}>
+      {movies.map((movie, index) => (
+        <Col key={index} xs={12} md={8} lg={6}>
+          <MovieCard
+            isInFavouriteList={isIdInMovieArray(favouriteData, movie)}
+            isInWatchList={isIdInMovieArray(watchLaterData, movie)}
+            onLike={onMovieActionClick('favourite', index)}
+            onWatchLater={onMovieActionClick('watchLater', index)}
+            {...movie}
+          />
+        </Col>
+      ))}
+    </Row>
   )
 })
 

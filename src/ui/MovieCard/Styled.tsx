@@ -1,4 +1,4 @@
-import { Skeleton } from 'antd'
+import { Progress, Skeleton } from 'antd'
 import styled from 'styled-components'
 
 const PosterImg = styled.img`
@@ -35,4 +35,15 @@ const Overview = styled.p`
   text-overflow: ellipsis;
 `
 
-export { PosterImg, Title, Overview, SkeletonImage }
+const StyledProgress = styled(Progress)`
+  position: absolute;
+  bottom: 65px;
+  right: 24px;
+
+  &&& .ant-progress-text {
+    color: #1890ff;
+    font-weight: bold;
+  }
+`
+
+export { PosterImg, Title, Overview, SkeletonImage, StyledProgress }

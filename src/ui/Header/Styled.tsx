@@ -5,6 +5,8 @@ import { Layout } from 'antd'
 const HeaderStyled = styled(Layout.Header)`
   background-color: ${({ theme }) => theme.colors.layoutBackground};
   height: auto;
+
+  padding-bottom: 20px;
 `
 
 const Container = styled.div`

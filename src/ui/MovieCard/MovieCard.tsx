@@ -5,7 +5,7 @@ import { HeartOutlined, HeartFilled, EyeOutlined, EyeFilled, YoutubeOutlined, Yo
 
 import { movieApi } from '../../api'
 
-import { PosterImg, Overview, Title, SkeletonImage } from './Styled'
+import { PosterImg, Overview, Title, SkeletonImage, StyledProgress } from './Styled'
 import { MovieCardType } from './types'
 
 const IMG_BASE_URL = 'http://image.tmdb.org/t/p/w185/'
@@ -48,6 +48,8 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
     }
   }, [id, setTrailerStatus, withTrailer])
 
+  const outputDate = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short' }).format(new Date(release_date))
+
   return (
     <Card
       hoverable
@@ -60,9 +62,16 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
     >
       <Title>{title}</Title>
       <Overview title={overview}>{overview}</Overview>
-      <Tag>{release_date}</Tag>
+      <Tag color="red">{outputDate}</Tag>
 
-      <div style={{ position: 'absolute', top: '5px', right: '5px', backgroundColor: 'red' }}>{vote_average}</div>
+      <StyledProgress
+        strokeColor="#1890ff"
+        strokeWidth={10}
+        width={40}
+        type="circle"
+        percent={vote_average * 10}
+        format={(percent) => percent && percent / 10}
+      />
     </Card>
   )
 })
