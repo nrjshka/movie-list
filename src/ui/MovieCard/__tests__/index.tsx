@@ -19,8 +19,6 @@ const server = setupServer(
 beforeAll(() => server.listen())
 afterAll(() => server.close())
 
-afterEach(cleanup)
-
 beforeEach(() => {
   global.window = Object.create(window)
 
