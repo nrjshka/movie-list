@@ -8,7 +8,7 @@ import { SupportedStores, SavedMoviesActionTypes } from './types'
 
 const saveMovie = createAsyncThunk(
   SavedMoviesActionTypes.SAVE,
-  async ({ store, movie }: { store: SupportedStores; movie: MovieType }, { getState, rejectWithValue }) => {
+  async ({ store, movie }: { store: SupportedStores; movie: MovieType }, { getState }) => {
     const currentStore = (getState() as StoreType)[store].data
 
     const newStoreValue = [...currentStore, movie]

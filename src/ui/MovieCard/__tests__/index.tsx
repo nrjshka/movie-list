@@ -5,7 +5,7 @@ import { setupServer } from 'msw/node'
 
 import { MovieCard } from '..'
 
-import { render, screen, fireEvent, cleanup } from '../../../utils/testUtilts'
+import { render, screen, fireEvent } from '../../../utils/testUtilts'
 import { movieMockNowYouSee } from '../../../models'
 
 import { API_PREFIX } from '../../../utils'
