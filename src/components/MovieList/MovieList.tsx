@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Col, Row } from 'antd'
+import { Col, Row, Empty } from 'antd'
 import { MovieCard, SkeletonCard } from '../../ui'
 
 import { MovieListProps } from './types'
@@ -41,10 +41,14 @@ const MovieList: React.FC<MovieListProps> = memo(function MovieList({ loading = 
     )
   }
 
+  if (!movies.length) {
+    return <Empty description="Movie list is empty" />
+  }
+
   return (
     <Row justify="center" gutter={[16, 16]}>
       {movies.map((movie, index) => (
-        <Col key={index} xs={14} md={8} lg={6}>
+        <Col key={index} xs={12} md={8} lg={6}>
           <MovieCard
             isInFavouriteList={isIdInMovieArray(favouriteData, movie)}
             isInWatchList={isIdInMovieArray(watchLaterData, movie)}
