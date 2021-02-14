@@ -41,7 +41,7 @@ const MovieCard: React.FC<MovieCardType> = memo(function MovieCard(props) {
       const [trailer] = results
 
       if (trailer) {
-        window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank')
+        window.location.href = `https://www.youtube.com/watch?v=${trailer.key}`
       } else {
         setTrailerStatus(false)
       }
