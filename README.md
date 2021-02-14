@@ -26,11 +26,14 @@ https://nrjshka-movie-list.netlify.app/
 1. The "watch later" and "favorite" pages also support filtering.
 2. To do this, use the search bar. Search by title and description of the movie is supported.
 3. Searching bar also supports queryString.
-...
+
+![Demo](https://github.com/nrjshka/movie-list/blob/main/media/movieList3.gif)
 
 ### Watching movie trailers
 
-## Contacts
+![Demo](https://github.com/nrjshka/movie-list/blob/main/media/movieList4.gif)
+
+## My contacts
 
 - [LinkedIn](https://www.linkedin.com/in/nrjshka/)
 - [Telegram](t.me/nrjshka)
